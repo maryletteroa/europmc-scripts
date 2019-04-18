@@ -1,0 +1,45 @@
+{'hitCount': 1,
+ 'nextCursorMark': 'AoIIP2WmICgyNzc4NjkyNg==',
+ 'request': {'cursorMark': '%2A',
+             'pageSize': 1,
+             'query': 'squamate, genomics, metagenomics',
+             'resultType': 'lite',
+             'sort': '',
+             'synonym': False},
+ 'resultList': {'result': [{'authorString': 'Schwartz TS, Tae H, Yang Y, '
+                                            'Mockaitis K, Van Hemert JL, '
+                                            'Proulx SR, Choi JH, Bronikowski '
+                                            'AM.',
+                            'citedByCount': 45,
+                            'dbCrossReferenceList': {'dbName': ['EMBL']},
+                            'doi': '10.1186/1471-2164-11-694',
+                            'firstPublicationDate': '2010-12-07',
+                            'hasBook': 'N',
+                            'hasDbCrossReferences': 'Y',
+                            'hasLabsLinks': 'Y',
+                            'hasPDF': 'Y',
+                            'hasReferences': 'Y',
+                            'hasSuppl': 'Y',
+                            'hasTMAccessionNumbers': 'Y',
+                            'hasTextMinedTerms': 'Y',
+                            'id': '21138572',
+                            'inEPMC': 'Y',
+                            'inPMC': 'Y',
+                            'isOpenAccess': 'Y',
+                            'journalIssn': '1471-2164',
+                            'journalTitle': 'BMC Genomics',
+                            'journalVolume': '11',
+                            'pageInfo': '694',
+                            'pmcid': 'PMC3014983',
+                            'pmid': '21138572',
+                            'pubType': "research support, non-u.s. gov't; "
+                                       'research-article; research support, '
+                                       "u.s. gov't, non-p.h.s.; journal "
+                                       'article',
+                            'pubYear': '2010',
+                            'source': 'MED',
+                            'title': 'A garter snake transcriptome: '
+                                     'pyrosequencing, de novo assembly, and '
+                                     'sex-specific differences.',
+                            'tmAccessionTypeList': {'accessionType': ['gen']}}]},
+ 'version': '6.0.3'}

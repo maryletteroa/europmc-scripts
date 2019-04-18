@@ -1,0 +1,4 @@
+*.pptx
+*.json
+env
+web
