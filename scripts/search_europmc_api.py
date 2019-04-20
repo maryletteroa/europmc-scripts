@@ -2,11 +2,11 @@
 # @Author: Marylette B. Roa
 # @Date:   2019-04-18 13:35:13
 # @Last Modified by:   Marylette B. Roa
-# @Last Modified time: 2019-04-20 15:47:00
+# @Last Modified time: 2019-04-20 17:00:13
 
 """
 This script accesses the European PMC API with queries written inside the
-'data' dictionary. Output is a tab-delimited list of open access studies.
+'data' dictionary. Output is a tab-delimited list of information from these publications.
 
 tagged in the comment as [MODIFY THIS]: 
     pay attention to these values when editing this script
