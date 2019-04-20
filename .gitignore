@@ -4,3 +4,4 @@ env
 web
 scripts/*.txt
 sc_*py
+todo.md
