@@ -70,4 +70,4 @@ Scripts are found inside the [scripts](scripts) directory. Run the scripts as is
 [MIT License](license.txt)
 
 # Attribution
-[Marylette Roa](www.twitter.com/MaryletteRoa)
+[Marylette Roa](https://www.twitter.com/MaryletteRoa)
