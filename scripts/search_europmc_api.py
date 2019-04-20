@@ -2,11 +2,11 @@
 # @Author: Marylette B. Roa
 # @Date:   2019-04-18 13:35:13
 # @Last Modified by:   Marylette B. Roa
-# @Last Modified time: 2019-04-18 18:13:35
+# @Last Modified time: 2019-04-20 15:47:00
 
 """
 This script accesses the European PMC API with queries written inside the
-'data' dictionary. STDOUT is a tab-delimited list of open access studies.
+'data' dictionary. Output is a tab-delimited list of open access studies.
 
 tagged in the comment as [MODIFY THIS]: 
     pay attention to these values when editing this script
@@ -16,19 +16,20 @@ API documentation at: https://europepmc.org/RestfulWebService#!/Europe32PMC32Art
 
 import requests
 import json
-# from pprint import  pprint
+from pprint import  pprint
 import datetime
 from sys import  argv, exit
 
 
 def getInfo(results):
-    # print info of openAccess articles
     hits = results["resultList"]["result"]
     # [MODIFY THIS] add or remove information from "infos" list
     # see search_result.txt for keys inside results["resultList"]["result"]
     infos = ["isOpenAccess",
             "citedByCount",
-            "id", 
+            "id",
+            "pmcid",
+            "pmid", 
             "authorString",
             "title",
             "journalTitle",
@@ -37,30 +38,43 @@ def getInfo(results):
             "pageInfo",
             "doi",
             ]
-    print("\t"+"\t".join(infos))
-    for hit in hits:
-        # print("\t".join([hit[info] for info in infos]))
-        ret_infos = [] 
-        for info in infos:   
-            try:
-                ret_infos.append(str(hit[info]))
-            except KeyError:
-                ret_infos.append("")
-        print("\t"+"\t".join(ret_infos))
+    outf_name = "records.txt"
+    with open(outf_name, "a") as outf:
+
+        txt = f"Total records retrieved: {len(hits)}"
+        print(txt)
+        print(txt , file=outf)
+
+        print("\t"+"\t".join(infos), file=outf)
+        for hit in hits:
+            ret_infos = [] 
+            for info in infos:   
+                try:
+                    ret_infos.append(str(hit[info]))
+                except KeyError:
+                    ret_infos.append("")
+            print("\t"+"\t".join(ret_infos), file=outf)
+    print(f"Output written in {outf_name}")
 
 def runSearch(url, data):
 # check if there is an outbound network first
-    now = datetime.datetime.now()
-    print("Date and time of query:", now)
     try: 
         response = requests.get(url, params=data)
         # check if response == 200 
         if response:
             try:
                 results = json.loads(response.text[1:-1]) # remove start and end parenthesis to convert into json properly
-                print(f"Hit count:{results['hitCount']}")
-                print(f"Query: {results['request']['query']}")
-                # pprint(results)
+                outf_name = "records.txt"
+                now = datetime.datetime.now()
+                with open(outf_name, "w") as outf:
+                    ## put all printables to both STDOUT and file to a list called txt
+                    txts = [f"Date and time of query: {now}",
+                    f"Query: {results['request']['query']}",
+                    f"Hit count: {results['hitCount']}"
+                    ]
+                    for txt in txts:
+                        print(txt)
+                        print(txt, file=outf)
                 getInfo(results)
             except json.decoder.JSONDecodeError:
                 # because API does not otherwise return a non-200
@@ -85,9 +99,7 @@ if __name__ == "__main__":
     Usage: 
         python foo.py '<query_term>' 
             e.g. python foo.py 'metagenomic&reptile'
-        Save to file
-            e.g. python foo.py 'metagenomic&reptile' > output.txt
-                """)
+    """)
         exit()
 
 
