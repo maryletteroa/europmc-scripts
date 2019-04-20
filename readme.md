@@ -15,11 +15,14 @@ Developed and tested using Python 3.7.2 and Linux environment
 **Requirement**: At least Python 3.6  
 
 Ideally, create and activate a virtual environment  
+
     ```
     python -m venv env
     source env/bin/activate
     ```  
+
 Install  
+
     ```
     pip install -r requirements.txt
     ```
